@@ -4,20 +4,22 @@ export default function Task({ tasks, task, onDeleteTask, onToggleTask }) {
   const minutes = task.requiredTime % 60;
 
   return (
-    <tr
-      style={
-        task.completedTask
-          ? { textDecoration: "line-through", color: "yellowgreen" }
-          : { textDecoration: "none" }
-      }
-    >
+    <tr>
       <td>
         {" "}
         <span className="num">{order}</span>
       </td>
-      <td>{task.description}</td>
+      <td
+        style={
+          task.completedTask
+            ? { textDecoration: "line-through", color: "yellowgreen" }
+            : { textDecoration: "none" }
+        }
+      >
+        {task.description}
+      </td>
       <td>{hour < 10 ? `0${hour}` : hour}</td>
-      <td>{minutes  < 10 ? `0${minutes}` : minutes}</td>
+      <td>{minutes < 10 ? `0${minutes}` : minutes}</td>
       <td>
         <input
           type="checkbox"
